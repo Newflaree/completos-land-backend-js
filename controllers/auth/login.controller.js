@@ -9,7 +9,7 @@ const login = ( req = request, res = response ) => {
     });
 
   } catch ( err ) {
-    console.log( `${ '[LOGIN.CONTROLLER]'.red }: Error details - ${ err }` );
+    console.log( `${ '[CONTROLLER.AUTH.LOGIN]'.red }: Error details - ${ err }` );
     res.status( 500 ).json({
       ok: false,
       msg: 'Something went wrong. Talking Administrator.'

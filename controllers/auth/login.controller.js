@@ -7,7 +7,7 @@ const User = require( '../../models/user.model' );
 
 /*
   PATH: /api/auth/login
-  DOC: 
+  DOC: Function that allows a login and evaluates if the user exists and if the password is correct.
 */
 const login = async ( req = request, res = response ) => {
   const { email, password } = req.body;

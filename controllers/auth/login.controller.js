@@ -14,7 +14,6 @@ const login = ( req = request, res = response ) => {
       ok: false,
       msg: 'Something went wrong. Talking Administrator.'
     });
-
   }
 }
 

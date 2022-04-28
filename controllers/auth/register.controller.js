@@ -1,19 +1,28 @@
 const { response, request } = require("express");
+const bcrypt = require( 'bcryptjs' );
+// Models
+const User =require( '../../models/user.model' );
 
-const register = ( req = request, res = response ) => {
+
+const register = async ( req = request, res = response ) => {
   const { name, password, email } = req.body;
-  const data = {
-    name,
-    email,
-    password
-  };
 
   try {
+    // Create a new user
+    const user = new User({ name, password, email });
+
+    // Encrypt password
+    const salt = bcrypt.genSaltSync();
+    user.password = bcrypt.hashSync( password, salt );
+
+    // Save to DB
+    await user.save();
+
+    //TODO: Generate JWT
 
     res.status( 201 ).json({
       ok: true,
-      msg: 'Register Success',
-      data
+      user
     });
 
   } catch ( err ) {
@@ -22,7 +31,6 @@ const register = ( req = request, res = response ) => {
       ok: false,
       msg: 'Something went wrong. Talking Administrator.'
     });
-
   }
 }
 

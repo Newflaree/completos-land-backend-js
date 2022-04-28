@@ -1,6 +1,6 @@
 require( 'colors' );
 require( 'dotenv' ).config();
-const Server = require( './models/server.model' );
+const { Server } = require('./models');
 
 const server = new Server();
 server.listen();

@@ -1,5 +1,9 @@
 const { response, request } = require("express");
 
+/*
+  PATH: /api/auth/login
+  DOC: 
+*/
 const login = ( req = request, res = response ) => {
   try {
 

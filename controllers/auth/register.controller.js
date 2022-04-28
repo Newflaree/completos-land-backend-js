@@ -3,7 +3,10 @@ const bcrypt = require( 'bcryptjs' );
 // Models
 const User =require( '../../models/user.model' );
 
-
+/*
+  PATH: /api/auth/register
+  DOC: Function that creates new users and saves them in the database. This is done with the password already encrypted.
+*/
 const register = async ( req = request, res = response ) => {
   const { name, password, email } = req.body;
 

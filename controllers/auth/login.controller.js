@@ -1,5 +1,8 @@
 const bcrypt = require("bcryptjs");
 const { response, request } = require("express");
+// Helpers
+const { generateJWT } = require("../../helpers/jsonwebtoken");
+// Models
 const User = require( '../../models/user.model' );
 
 /*
@@ -28,12 +31,13 @@ const login = async ( req = request, res = response ) => {
       });
     }
 
-    //TODO: Generate JWT
+    // Generate JWT
+    const token = await generateJWT( user.id );
 
     res.status( 200 ).json({
       ok: true,
       user,
-      //token
+      token
     });
 
   } catch ( err ) {

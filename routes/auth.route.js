@@ -12,7 +12,11 @@ const { validateFields } = require('../middlewares');
 */
 const router = Router();
 
-router.post( '/login', [], login );
+router.post( '/login', [
+  check( 'email', 'Email is mandatory' ).isEmail(),
+  check( 'password', 'Password must be longer than 6 characters' ).isLength({ min: 6 }),
+  validateFields
+], login );
 
 router.post( '/register',[
   check( 'name', 'The name is mandatory' ).not().isEmpty(),

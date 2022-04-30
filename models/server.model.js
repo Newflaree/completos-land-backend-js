@@ -24,10 +24,10 @@ class Server {
   async dbConnect() {
     try {
       await dbConnection();
-      console.log( `${ '[SERVER.DB-CONNECTION]'.green }: Database ONLINE` );
+      console.log( `${ '[SERVER.DB-CONNECT]'.green }: Database ONLINE` );
 
     } catch ( err ) {
-      console.log( `${ '[SERVER.DB-CONNECTION]'.red }: Error details - ${ err }` );
+      console.log( `${ '[SERVER.DB-CONNECT]'.red }: Error details - ${ err }` );
     }
   }
 

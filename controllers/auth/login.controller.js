@@ -18,7 +18,7 @@ const login = async ( req = request, res = response ) => {
     if ( !user ) {
       return res.status( 401 ).json({
         ok: false,
-        msg: 'Incorrect email or password'
+        msg: 'Correo electrónico o contraseña incorrectos.'
       });
     }
 
@@ -27,7 +27,7 @@ const login = async ( req = request, res = response ) => {
     if ( !validPassword ) {
       return res.status( 401 ).json({
         ok: false,
-        msg: 'Incorrect email or password'
+        msg: 'Correo electrónico o contraseña incorrectos.'
       });
     }
 

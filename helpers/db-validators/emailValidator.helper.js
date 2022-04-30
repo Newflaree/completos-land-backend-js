@@ -4,7 +4,7 @@ const emailValidator = async ( email = '' ) => {
   const emailExists = await User.findOne({ email });
 
   if ( emailExists ) {
-    throw new Error( 'There is already a use with that email' );
+    throw new Error( 'Ya existe un usuario con ese correo electrónico.' );
   }
 
   return true;
